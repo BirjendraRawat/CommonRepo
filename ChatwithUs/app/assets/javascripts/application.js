@@ -3,4 +3,7 @@
 //= require activestorage
 //= require turbolinks
 //= require semantic-ui
-//= require tree
+
+$(document).on('turbolinks:load', function() {
+  $('.ui.dropdown').dropdown();
+})
