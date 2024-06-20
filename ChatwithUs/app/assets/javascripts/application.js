@@ -3,4 +3,3 @@
 //= require activestorage
 //= require turbolinks
 //= require semantic-ui
-//= require tree
