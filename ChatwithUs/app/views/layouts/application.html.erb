@@ -2,12 +2,16 @@
 <html>
   <head>
     <title>ChatwithUs</title>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+
     <%= javascript_include_tag "application", "jquery.min.js", "popper.min.js", "bootstrap.min.js", "semantic.min.js", "data-turbolinks-track": "reload" %>
+
   </head>
 
   <body>
@@ -19,9 +23,10 @@
     <div class="ui container">
       <%= yield %>
     </div>
+   </div>
+ </div>
     <script>
-  $(".ui.dropdown").dropdown();
-</script>
-
-  </body>
+      $(".ui.dropdown").dropdown();
+    </script>
+ </body>
 </html>
