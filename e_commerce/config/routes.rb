@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  root 'users#index'
   get 'users/new'
   get 'users/create'
   get 'users/edit'
@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get 'admins/update'
   get 'admins/destroy'
   devise_for :users
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
