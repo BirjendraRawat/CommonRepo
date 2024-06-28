@@ -12,11 +12,11 @@ before_action :set_admin, only: [:edit, :update, :destroy]
   def create
     @admin = Admin.new(admin_params)
       if @admin.save
-      flash[:success] = "Welcome to the Admin Page."
-      redirect_to admins_url
+        flash[:success] = "Welcome to the Admin Page."
+        redirect_to admins_url
       else
-      render 'new'
-    end
+        render 'new'
+      end
   end
 
   def edit
@@ -26,6 +26,7 @@ before_action :set_admin, only: [:edit, :update, :destroy]
     if @admin.update(admin_params)
       flash[:success] = "Your account was updated successfully"
       redirect_to admins_path
+    else
       render 'edit'
     end
   end
@@ -34,19 +35,19 @@ before_action :set_admin, only: [:edit, :update, :destroy]
   end
 
   def destroy
-    @admin.destroy
-    flash[:danger] = "Admin and all products created by admin have been deleted"
+     @admin.destroy
+     flash[:danger] = "Admin and all products created by admin have been deleted"
      redirect_to admins_path
   end
 
   private
 
   def admin_params
-    params.require(:admin).permit(:name, :email, :password_digest, :address, :address2)
+     params.require(:admin).permit(:name, :email, :password_digest, :address, :address2)
   end
 
   def set_admin
-    @admin = Admin.find(params[:id])
+     @admin = Admin.find(params[:id])
   end
 
 
