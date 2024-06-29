@@ -2,7 +2,7 @@ class AdminsController < ApplicationController
 before_action :set_admin, only: [:edit, :update, :destroy]
 
   def index
-    @admins = Admin.all
+    @admins = Admin.paginate(page: params[:page])
   end
 
   def new
@@ -13,7 +13,7 @@ before_action :set_admin, only: [:edit, :update, :destroy]
     @admin = Admin.new(admin_params)
       if @admin.save
         flash[:success] = "Welcome to the Admin Page."
-        redirect_to admins_url
+        redirect_to admin_path(@admin)
       else
         render 'new'
       end
@@ -32,6 +32,7 @@ before_action :set_admin, only: [:edit, :update, :destroy]
   end
 
   def show
+    @admin = Admin.find(params[:id])
   end
 
   def destroy
@@ -43,7 +44,7 @@ before_action :set_admin, only: [:edit, :update, :destroy]
   private
 
   def admin_params
-     params.require(:admin).permit(:name, :email, :password_digest, :address, :address2)
+     params.require(:admin).permit(:name, :contact, :email, :password, :role, :address, :address2, :state, :city, :zip)
   end
 
   def set_admin
