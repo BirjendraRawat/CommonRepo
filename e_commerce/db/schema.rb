@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_27_101605) do
+ActiveRecord::Schema.define(version: 2024_06_29_093357) do
 
-create_table "admins", force: :cascade do |t|
+  create_table "admins", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
@@ -20,6 +20,11 @@ create_table "admins", force: :cascade do |t|
     t.string "password_digest"
     t.text "address"
     t.text "address2"
+    t.string "contact"
+    t.string "role"
+    t.string "state"
+    t.string "city"
+    t.integer "zip"
   end
 
   create_table "users", force: :cascade do |t|

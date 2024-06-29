@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   get 'users/create'
   get 'users/edit'
   get 'users/update'
-  get 'signup', to: 'admins#new'
-  get 'admins', to: 'admins#create'
   resources :admins
   devise_for :users
 
