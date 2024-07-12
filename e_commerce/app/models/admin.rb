@@ -1,10 +1,29 @@
 class Admin < ApplicationRecord
-  before_save { self.email = email.downcase }
-  validates :name, presence: true, uniqueness: { case_sensitive: false }, 
-            length: { minimum: 3, maximum: 25 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, length: { maximum: 105 },
-            uniqueness: { case_sensitive: false },
-            format: { with: VALID_EMAIL_REGEX }
-  has_secure_password
+
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
+
+  SUPER_ADMIN = 'super_admin'.freeze
+  ADMIN = 'admin'.freeze
+  MANAGER = 'manager'.freeze
+
+  ROLES = {
+    "Super Admin (Will have full access of all features)" => SUPER_ADMIN,
+    "Admin" => ADMIN,
+    "Manager" => MANAGER
+  }
+
+  def super_admin?
+    role == SUPER_ADMIN
+  end
+
+  def admin?
+    role == ADMIN
+  end
+
+  def manager?
+    role == MANAGER
+  end
+
 end

@@ -2,7 +2,7 @@
   <%= render 'shared/error', obj: @admin %>
     <div class="row justify-content-center">
         <div class="col-10">
-	        <%= form_with(model: @admin, class: "shadow p-3 mb-5 bg-light bg-gradient rounded") do |f| %>
+	        <%= form_for(@admin, :url => '/admins/create', class: "shadow p-3 mb-5 bg-light bg-gradient rounded") do |f| %>
 		        <div class="form-group">
 		             <%= f.label :name %>
 		             <%= f.text_field :name, class: "form-control", placeholder: "Enter name", autofocus: true %>
@@ -33,7 +33,7 @@
 					    <input type="text" class="form-control" id="inputCity">
 				    </div>
 		            <div class="form-group col-md-4">
-			            <label for="inputState">State</label>
+			            <f.label for="inputState">State</label>
 				            <select id="inputState" class="form-control">
 						        <option selected>Choose...</option>
 						        <option>Rajasthan</option>
@@ -51,17 +51,17 @@
 			        </div>
 		        </div>
 		        <div class="form-group">
-				    <label class="my-2 mr-4" for="inlineFormCustomSelectPref">Role</label>
-					    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-						    <option selected>Choose...</option>
-						    <option value="1">Product Manager</option>
-						    <option value="2">Order Manager</option>
-						    <option value="3">Cart Manager</option>
-					    </select>
-			    </div>
+					    <label class="my-2 mr-4" for="inlineFormCustomSelectPref">Role</label>
+						    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+							    <option selected>Choose...</option>
+							    <option value="1">super_admin</option>
+							    <option value="2">admin</option>
+							    <option value="3">manager</option>
+						    </select>
+			      </div>
 		        <div class="form-group text-center" >
 		        	<div class="col-lg-12 mt-4">
-                      <%= f.submit(@admin.new_record? ? "Sign up" : "Update your account", class: "btn btn-outline-dark btn-lg") %>
+                      <%= f.submit"Create", class: "btn btn-outline-dark btn-lg" %>
                     </div>
 			    </div>
 				<% end %>

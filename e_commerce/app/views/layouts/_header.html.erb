@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      </a>
+    <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,7 +12,6 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Women</a>
         </li>
-
         <li class="nav-item">
           <a class="nav-link " href="#">Kids</a>
         </li>
@@ -26,27 +24,24 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Electronics<sup>New</sup></a>
         </li>
-        <div class="search-bar">
+      <div class="search-bar">
         <form class="d-flex" >
-        <input class="form-control me-2"  placeholder="How can I help you!" aria-label="Search" id ="input">
-        <button class="btn btn-outline-success" onclick="speak()">Speak</button>
-      </div>
+          <input class="form-control me-2"  placeholder="How can I help you!" aria-label="Search" id ="input">
+          <button class="btn btn-outline-success" onclick="speak()">Speak</button>
        </form>
+      </div>
 
-        <% if user_signed_in? %>
-       Logged in as <strong> <%= current_user.email %></strong>
-       <%= link_to 'Edit profile' , edit_user_registration_path, :class => 'navbar-link' %> |
-       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+       <% if user_signed_in? %>
+         Logged in as <strong> <%= current_user.email %></strong>
+           <%= link_to 'Edit profile' , edit_user_registration_path, :class => 'navbar-link' %> |
+           <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
        <% else %>
-       <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
-       <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+           <%= link_to "User Sign up", new_user_registration_path, :class => 'navbar-link' %> |
+           <%= link_to "User Login", new_user_session_path, :class => 'navbar-link' %>
        <% end %>
-
-
     </div>
   </div>
 </nav>
-
 
 <script>
   function speak(){

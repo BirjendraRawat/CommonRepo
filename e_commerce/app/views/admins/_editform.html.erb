@@ -1,0 +1,74 @@
+<div class="container">
+  <%= render 'shared/error', obj: @admin %>
+    <div class="row justify-content-center">
+        <div class="col-10">
+          <%= form_with(model: @admin, class: "shadow p-3 mb-5 bg-light bg-gradient rounded") do |f| %>
+            <div class="form-group">
+                 <%= f.label :name %>
+                 <%= f.text_field :name, class: "form-control", placeholder: "Enter name", autofocus: true %>
+            </div>
+            <div class="form-group">
+                 <%= f.label :contact %>
+                 <%= f.text_field :contact, class: "form-control", placeholder: "Enter Your Phone Number", autofocus: true %>
+            </div>
+            <div class="form-group">
+                 <%= f.label :email %>
+                 <%= f.email_field :email, class: "form-control", placeholder: "Enter email" %>
+            </div>
+            <div class="form-group">
+                 <%= f.label :password %>
+                 <%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
+            </div>
+          <div class="form-group">
+            <%= f.label :address %>
+            <%= f.text_field :address, class: "form-control", placeholder: "1234 Main St" %>
+          </div>
+        <div class="form-group">
+            <%= f.label :address2 %>
+            <%= f.text_field :address2, class: "form-control", placeholder: "Apartment, studio, or floor" %>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">City</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+                <div class="form-group col-md-4">
+                  <f.label for="inputState">State</label>
+                    <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>Rajasthan</option>
+                    <option>Punjab</option>
+                    <option>Gujrat</option>
+                    <option>Bihar</option>
+                    <option>Maharashtra</option>
+                    <option>Delhi</option>
+                    <option>U.P</option>
+                </select>
+                </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="my-2 mr-4" for="inlineFormCustomSelectPref">Role</label>
+                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                  <option selected>Choose...</option>
+                  <option value="1">super_admin</option>
+                  <option value="2">admin</option>
+                  <option value="3">manager</option>
+                </select>
+            </div>
+            <div class="form-group text-center" >
+              <div class="col-lg-12 mt-4">
+                      <%= f.submit "Update your account", class: "btn btn-outline-dark btn-lg" %>
+                    </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="text-center">
+          <%= link_to '[ Cancel and return to Admins ]', admins_path %>
+       </div>
+      </div>
+    </div>
+</div>
