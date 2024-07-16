@@ -1,8 +1,9 @@
 class AdminsController < ApplicationController
-before_action :set_admin, only: [:edit, :update, :destroy]
+  before_action :access_permission, only: [:edit, :update, :destroy, :new, :create, :show]
+  before_action :set_admin, only: [:edit, :update, :destroy]
 
   def index
-    @admins = Admin.all
+    @admins = Admin.paginate(page: params[:page])
   end
 
   def new
@@ -11,9 +12,10 @@ before_action :set_admin, only: [:edit, :update, :destroy]
 
   def create
     @admin = Admin.new(admin_params)
+    @admin.created_by_id = current_admin.id
       if @admin.save
         flash[:success] = "Welcome to the Admin Page."
-        redirect_to admins_url
+        redirect_to admin_path(@admin)
       else
         render 'new'
       end
@@ -32,22 +34,32 @@ before_action :set_admin, only: [:edit, :update, :destroy]
   end
 
   def show
+    @admin = Admin.find(params[:id])
   end
 
   def destroy
-     @admin.destroy
-     flash[:danger] = "Admin and all products created by admin have been deleted"
-     redirect_to admins_path
+    if @admin.destroy
+      flash[:danger] = "Admin was successfully destroyed."
+      redirect_to admins_path
+    else
+      render 'show'
+    end
   end
 
   private
 
   def admin_params
-     params.require(:admin).permit(:name, :email, :password_digest, :address, :address2)
+     params.require(:admin).permit(:name, :contact, :email, :password, :role, :address, :address2, :state, :city, :zip, :created_by_id)
   end
 
   def set_admin
      @admin = Admin.find(params[:id])
+  end
+
+  def access_permission
+    unless current_admin.super_admin?
+      redirect_to admins_path, alert: 'You are not authorize to access this page'
+    end
   end
 
 

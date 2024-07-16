@@ -1,2 +1,24 @@
-<h1>Admins#index</h1>
-<p>Find me in app/views/admins/index.html.erb</p>
+<h1 align="center">All Admins List</h1>
+
+  <div align="center">
+    <%= will_paginate %>
+    <% @admins.each do |admin| %>
+        <div class="row">
+          <div class="well col-md-6">
+            <ul>
+              <li><%= link_to gravatar_for(admin), admin_path(admin) %></li>
+                <li class="article-title">
+                  <%= link_to admin.name, admin_path(admin) %>
+                </li>
+          </div>
+              <div class="well col-md-6 mt-5 article-title">
+                Created by: <%= admin.creator.try(:name) || 'Unknown' %>
+              </div>
+            </ul>
+        </div>
+    <% end %>
+    <%= will_paginate %>
+
+    <%= link_to "Create New Admin", new_admin_path, class: "btn btn-primary btn-lg mb-4 rounded-0"  %>
+  </div>
+

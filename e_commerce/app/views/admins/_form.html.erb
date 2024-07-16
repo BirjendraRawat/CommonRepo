@@ -1,79 +1,62 @@
-<%= render 'shared/error', obj: @admin %>
-
 <div class="container">
+  <%= render 'shared/error', obj: @admin %>
     <div class="row justify-content-center">
-        <div class="col-10">
-	        <%= form_for(@admin, :html => { class: "form-horizontal", role: "form" }) do |f| %>
+        <div class="col-10 shadow p-3 mb-5 bg-light bg-gradient rounded">
+	        <%= form_for(@admin, :url => admins_create_path) do |f| %>
 		        <div class="form-group">
-		            <div class="control-label col-sm-2">
 		             <%= f.label :name %>
-		            </div>
-		            <div class="col-sm-8">
 		             <%= f.text_field :name, class: "form-control", placeholder: "Enter name", autofocus: true %>
-		            </div>
 		        </div>
 		        <div class="form-group">
-		            <div class="control-label col-sm-2">
+		             <%= f.label :contact %>
+		             <%= f.text_field :contact, class: "form-control", placeholder: "Enter Your Phone Number", autofocus: true %>
+		        </div>
+		        <div class="form-group">
 		             <%= f.label :email %>
-		            </div>
-		            <div class="col-sm-8">
 		             <%= f.email_field :email, class: "form-control", placeholder: "Enter email" %>
-		            </div>
 		        </div>
 		        <div class="form-group">
-		            <div class="control-label col-sm-2">
 		             <%= f.label :password %>
-		            </div>
-		            <div class="col-sm-8">
 		             <%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
-		            </div>
 		        </div>
-			    <form class="form-inline">
-				    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Role</label>
-					    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-						    <option selected>Choose...</option>
-						    <option value="1">Product Manager</option>
-						    <option value="2">Order Manager</option>
-						    <option value="3">Cart Manager</option>
-					    </select>
-			    </form>
-			    <div class="form-group">
-				    <label for="inputAddress">Address</label>
-				    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-			    </div>
-				<div class="form-group">
-				    <label for="inputAddress2">Address 2</label>
-				    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-				</div>
-			    <div class="form-row">
-				    <div class="form-group col-md-6">
-					    <label for="inputCity">City</label>
-					    <input type="text" class="form-control" id="inputCity">
+				    <div class="form-group">
+					    <%= f.label :address %>
+					    <%= f.text_field :address, class: "form-control", placeholder: "1234 Main St" %>
 				    </div>
-		            <div class="form-group col-md-4">
-			            <label for="inputState">State</label>
-				            <select id="inputState" class="form-control">
-						        <option selected>Choose...</option>
-						        <option>Rajasthan</option>
-						        <option>Punjab</option>
-						        <option>Gujrat</option>
-						        <option>Bihar</option>
-						        <option>Maharashtra</option>
-						        <option>Delhi</option>
-						        <option>U.P</option>
-						    </select>
-		            </div>
-			        <div class="form-group col-md-2">
-				        <label for="inputZip">Zip</label>
-				        <input type="text" class="form-control" id="inputZip">
-			        </div>
-			    </div>
-				<div class="form-group">
-			        <div class="col-sm-8 col-sm-offset-2">
-			          <%= f.submit(@admin.new_record? ? "Sign up" : "Update your account", class: "btn btn-primary btn-lg") %>
-			        </div>
-			    </div>
-	        <% end %>
-	    </div>
+						<div class="form-group">
+						    <%= f.label :address2 %>
+						    <%= f.text_field :address2, class: "form-control", placeholder: "Apartment, studio, or floor" %>
+						</div>
+					  <div class="form-group">
+		             <%= f.label :zip %>
+		             <%= f.text_field :zip, class: "form-control", placeholder: "Enter Area Pin-code" %>
+		        </div>
+						<div class="row">
+					    <div class="form-group col-md-4 mt-4">
+					    	<%= f.label :city %>
+						    <%= f.select :city, ["Choose", "Jaipur", "Udaipur", "Sikar", "Surat", "Rajkot","Mumbai", "Nasik", "Chandigarh", "Amritsar", "Lucknow", "Noida", "New Delhi", "Delhi Cant"], class: "form-control" %>
+					    </div>
+		          <div class="form-group col-md-4 mt-4">
+		          	<%= f.label :state %>
+		            <%= f.select :state, ["Choose", "Rajasthan", "Gujarat", "Maharashtra", "Punjab", "Delhi", "UP"], class: "form-control" %>
+		          </div>
+			        <div class="form-group col-md-4 mt-4">
+			        	<%= f.label :role %>
+						    <%= f.select :role, [["choose..."], ["super_admin", "1"], ["admin", "2"], ["manager", "3"]], class: "form-control" %>
+				      </div>
+				    </div>
+		        <div class="form-group text-center" >
+		        	<div class="col-lg-12 mt-4">
+	              <%= f.submit "Create", class: "btn btn-outline-dark btn-lg" %>
+	            </div>
+			      </div>
+					<% end %>
+				</div>
+				<div class="text-center">
+			      <%= link_to '[ Cancel and return to Admins ]', admins_path %>
+			  </div>
     </div>
+  </div>
 </div>
+
+

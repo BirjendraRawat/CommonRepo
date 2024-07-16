@@ -1,0 +1,5 @@
+<li>
+  <%= link_to gravatar_for @admin, size: 50 %>
+  <%= link_to @admin.name, @admin %>
+  <%= link_to "delete", @admin, method: :delete, data: { confirm: "You sure?" } %>
+</li>
