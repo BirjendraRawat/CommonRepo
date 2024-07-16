@@ -10,6 +10,20 @@ $box-shadow:                  0 2px 4px rgba(15,34,58,.12);
   background-size: cover;
 } */
 
+$sidebar-width:  250px;
+$header-height: 70px;
+
+.main-content {
+    margin-top: 0px !important;
+    margin-left: $sidebar-width;
+    overflow: hidden;
+
+    .content {
+        padding: 0 15px 10px 15px;
+        margin-top: $header-height;
+    }
+}
+
 /* Header   */
 
 nav.navbar{
