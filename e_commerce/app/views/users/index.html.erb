@@ -1,10 +1,11 @@
 <% if admin_signed_in? %>
  Logged in as <strong> <%= current_admin.email %></strong>
    <%= link_to 'Edit profile' , edit_admin_registration_path, :class => 'navbar-link' %> |
-   <%= link_to "Logout", destroy_admin_session_path, method: :delete, :class => 'navbar-link' %>
+   <%= link_to "Logout", destroy_admin_session_path, method: :delete, :class => 'navbar-link' %> |
+   <%= link_to '[ Admins Listing Page]', admins_path %>
 <% else %>
    <%= link_to "Admin Sign up", new_admin_registration_path, :class => 'navbar-link' %> |
-   <%= link_to "Admin Login", new_admin_session_path, :class => 'navbar-link' %>
+   <%= link_to "Admin Login", new_admin_session_path, :class => 'navbar-link' %> |
 <% end %>
 
 <div class="col-lg-12">

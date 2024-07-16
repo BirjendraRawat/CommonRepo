@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_03_122522) do
+ActiveRecord::Schema.define(version: 2024_07_16_073213) do
 
   create_table "admins", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2024_07_03_122522) do
     t.string "state"
     t.string "city"
     t.integer "zip"
+    t.integer "created_by_id"
+    t.index ["created_by_id"], name: "index_admins_on_created_by_id"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -44,4 +46,5 @@ ActiveRecord::Schema.define(version: 2024_07_03_122522) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "admins", "admins", column: "created_by_id"
 end

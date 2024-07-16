@@ -12,6 +12,7 @@ class AdminsController < ApplicationController
 
   def create
     @admin = Admin.new(admin_params)
+    @admin.created_by_id = current_admin.id
       if @admin.save
         flash[:success] = "Welcome to the Admin Page."
         redirect_to admin_path(@admin)
@@ -48,7 +49,7 @@ class AdminsController < ApplicationController
   private
 
   def admin_params
-     params.require(:admin).permit(:name, :contact, :email, :password, :roles, :address, :address2, :state, :city, :zip)
+     params.require(:admin).permit(:name, :contact, :email, :password, :role, :address, :address2, :state, :city, :zip, :created_by_id)
   end
 
   def set_admin

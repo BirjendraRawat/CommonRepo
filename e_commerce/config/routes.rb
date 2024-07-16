@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_scope :admin  do
-    get  'admins/new' => 'admins#new'
+  #   get  'admins/new' => 'admins#new'
     post 'admins/create' => 'admins#create'
   end
   resources :admins

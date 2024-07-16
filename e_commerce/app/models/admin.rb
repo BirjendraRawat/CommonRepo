@@ -1,5 +1,8 @@
 class Admin < ApplicationRecord
 
+  belongs_to :creator, class_name: 'Admin', foreign_key: 'created_by_id', optional: true
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
