@@ -13,11 +13,6 @@
 ActiveRecord::Schema.define(version: 2024_07_16_073213) do
 
   create_table "admins", force: :cascade do |t|
-<<<<<<< Updated upstream
-=======
-    t.string "name"
-    t.string "email"
->>>>>>> Stashed changes
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false

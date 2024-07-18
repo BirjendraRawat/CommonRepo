@@ -1,6 +1,11 @@
 /* @import "bootstrap-sprockets";
 @import "bootstrap"; */
 
+li{
+  list-style: none;
+}
+
+
 $sidebar-width:  250px;
 $sidebar-bg: #ffffff;
 $box-shadow:                  0 2px 4px rgba(15,34,58,.12);
@@ -98,5 +103,9 @@ nav.navbar{
 
 .link {
   font-size: 30px;
+}
+
+.background {
+  background-color:#8fbcbb;
 }
 

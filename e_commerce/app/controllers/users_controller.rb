@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
 
   def index
   end
@@ -15,4 +14,5 @@ class UsersController < ApplicationController
 
   def update
   end
+
 end

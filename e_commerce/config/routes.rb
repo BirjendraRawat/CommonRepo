@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_scope :admin  do
-  #   get  'admins/new' => 'admins#new'
     post 'admins/create' => 'admins#create'
   end
   resources :admins
@@ -11,8 +10,6 @@ Rails.application.routes.draw do
   get 'users/create'
   get 'users/edit'
   get 'users/update'
-<<<<<<< Updated upstream
-=======
   get '/men', to: 'static_pages#men'
   get '/women', to: 'static_pages#women'
   get '/kids', to: 'static_pages#kids'
@@ -21,8 +18,6 @@ Rails.application.routes.draw do
   get '/electronics', to: 'static_pages#electronics'
   get 'signup', to: 'admins#new'
   get 'admins', to: 'admins#create'
-  resources :admins
->>>>>>> Stashed changes
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,11 +1,11 @@
-<div class="container shadow p-3 mb-5 bg-light bg-gradient rounded">
+<div class="container shadow p-3 mt-4 mb-5 background rounded">
 <h1 class="text-center">Welcome to <%= @admin.name %>'s profile</h1>
-
+<li>
     <%= link_to gravatar_for @admin, size: 200 %>
-    <%= link_to "Edit Account",  edit_admin_path, method: :get, class: "link text-info d-flex mt-4 justify-content-center" %>
-    <%= link_to "delete", @admin, method: :delete, class: "link text-info d-flex mt-4 justify-content-center", data: { confirm: "You sure?" } %>
-    <%= link_to "Log out",  destroy_admin_session_path, method: :delete, class: "link text-info d-flex mt-4 justify-content-center" %>
-
+    <%= link_to "Edit Account",  edit_admin_path, method: :get, class: "link text-secondary d-flex mt-4 justify-content-center" %>
+    <%= link_to "delete", @admin, method: :delete, class: "link text-secondary d-flex mt-4 justify-content-center", data: { confirm: "You sure?" } %>
+    <%= link_to "Log out",  destroy_admin_session_path, method: :delete, class: "link text-secondary d-flex mt-4 justify-content-center" %>
+</li>
 </div>
 <h5 class="d-flex mt-2 justify-content-center">Created by: <%= @admin.creator.try(:name) || 'Unknown' %></h5>
 
