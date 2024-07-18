@@ -18,10 +18,6 @@ Rails.application.routes.draw do
   get '/electronics', to: 'static_pages#electronics'
   get 'signup', to: 'admins#new'
   get 'admins', to: 'admins#create'
-<<<<<<< Updated upstream
-=======
-  resources :admins
->>>>>>> Stashed changes
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
